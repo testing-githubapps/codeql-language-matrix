@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        lang: [ 'javascript', 'java', 'python' ]
+        languages: [ 'javascript', 'java', 'python' ]
     permissions:
       # required for all workflows
       security-events: write
@@ -23,7 +23,7 @@ jobs:
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v1
         with:
-          languages: ${{ matrix.lang }}
+          languages: ${{ matrix.languages }}
 
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v1
